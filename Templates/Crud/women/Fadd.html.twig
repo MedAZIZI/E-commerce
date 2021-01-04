@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../styleAdmin.css">
+            <link rel="stylesheet" href="../style.css">
+            <title>CRUD Femmes-ajouter article</title>
+
+        {% endblock %}  
+
+
+{% block body %}
+
+<div class="left-panel" style="position:fixed;">
+    <a><div class="lg">
+        <span>W</span>
+        <span>flipp</span>
+    </div></a>
+    <div class="click-divs">
+        <a href="/CrudF"><div>Mode Femmes</div></a>
+        <a href="/CrudH"><div>Mode Hommes</div></a>
+        <a href="/CrudA"><div>Accessoires</div></a>
+    </div>
+</div>
+<div style="padding-left:30%">
+    <h5 style="margin:30px;">Ajouter un article pour les hommes</h5>
+
+    <hr size="2px"><br><br><br><br>
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+          <button class="btn btn-primary">Ajouter</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

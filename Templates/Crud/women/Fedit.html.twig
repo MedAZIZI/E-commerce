@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+      
+                
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../styleAdmin.css">
+            <link rel="stylesheet" href="../style.css">
+            <title>CRUD Hommes-Modifier article</title>
+                
+        {% endblock %}  
+
+
+{% block body %}
+
+   <div class="left-panel" style="position:fixed;">
+    <a><div class="lg">
+        <span>W</span>
+        <span>flipp</span>
+    </div></a>
+    <div class="click-divs">
+        <a href="/CrudF"><div>Mode Femmes</div></a>
+        <a href="/CrudH"><div>Mode Hommes</div></a>
+        <a href="/CrudA"><div>Accessoires</div></a>
+    </div>
+</div>
+<div style="padding-left:30%">
+    
+    <h5 style="margin:30px;">Modifier l'article</h5>
+
+    <hr size="2px"><br><br><br><br>
+    <table width="100%" style="margin-left:50px">
+    <tr><td>
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(form) }}
+            <button  class="btn btn-primary" >Modifier</button>
+        {{ form_end(form) }}
+        </td>
+        <td>
+            <img src="#" src="" width="350" height="600" style="border-style:solide">
+        </td>
+    </tr>
+    
+    </table>
+</div>
+{% endblock %}

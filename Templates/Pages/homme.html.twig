@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+
+                
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="./style.css">
+            <title>Produit hommes</title>
+
+        <header class="sticky-nav">
+            <a href="index.html"><div class="lg">
+                <span>W</span>
+                <span>flipp</span>
+            </div></a>
+
+            <ul class="nav">
+                <a href="/"><li>Nouveaute</li></a>
+                <a href="/women"><li>Femmes</li></a>
+                <a href="/men"><li>Hommes</li></a>
+                <a href="/acc"><li>Accessoires</li></a>
+                <a href="/panier"><li>panier</li></a>
+            </ul>
+        </header>
+
+        {% endblock %}  
+
+
+{% block body %}
+<div class="products">      
+    
+    <div class="might-like">
+        <br><br>
+        <img class="femme-page" src="./images/men.jpg" alt="">
+        <h1>Mode Homme</h1>
+        <div class="vetements" id="vetement">
+
+            {% for article in Prop %}
+            <div class="item">
+                <a href="#">
+                    <img src="images/products/{{ article.design }}" alt="" class="item-img">
+                </a> 
+                <A href="{{ path ('prod', { id:article.id }) }}" ><p>{{ article.title }}</p></a>
+                <p class="prix">{{ article.prix }}</p>
+             </div>
+            {% endfor %}
+        </div>
+    </div> 
+    <br>
+</div>
+<div>
+<br>
+</div>
+{% endblock %}

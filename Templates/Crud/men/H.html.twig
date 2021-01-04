@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block header %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="./styleAdmin.css">
+            <link rel="stylesheet" href="./style.css">
+            <title>CRUD Hommes</title>
+                
+
+        {% endblock %}  
+
+
+{% block body %}
+<div class="left-panel" style="position:fixed;">
+    <a><div class="lg">
+        <span>W</span>
+        <span>flipp</span>
+    </div></a>
+    <div class="click-divs">
+        <a href="/CrudF"><div>Mode Femmes</div></a>
+        <a href="/CrudH"><div>Mode Hommes</div></a>
+        <a href="/CrudA"><div>Accessoires</div></a>
+    </div>
+</div>
+<div style="padding-left:30%">
+
+
+<h5 style="margin:30px;">Gestion des articles des hommes</h5>
+<div style="position:fixed;right:6%;margin:40px">
+    <button ><a href="{{ path ('Men_addA') }}">Ajoute article</a></button>
+</div>
+<hr size="2px"><br><br><br><br>
+<section class="trend spad">
+    <div class="container">  
+            <div class="row property__gallery">
+                   
+                    {% for article in Prop %}
+                        <div class="item" style="width:300;height:500;">
+                            <a href="#">
+                                <img style="border-radius: 15px;" src="images/products/{{ article.design }}" alt="" class="item-img">
+                            </a> 
+                            <p>{{ article.title }}</p>
+                            <p class="prix">{{ article.prix }} €</p>
+                            <table>
+                            <tr><td>                              
+                            <A href="{{ path ('Men_editA', { id:article.id }) }}" class="btn btn-secondary" style="margin:10px">Modifier</a>
+                            </td>
+                            <td>
+                            <form method="POST" action="{{ path ('Men_delA', { id:article.id }) }}"
+                            onsubmit=" return confirm('Etes-vous sur de supprimer ??') ">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-danger" style="margin:10px">Supprimer</button>  
+                            </form>
+                            </td></tr>
+                            </table>
+                            
+                        </div>
+                        <hr size="2px">
+                    {% endfor %}
+            </div>
+    </div>
+</section>
+</div>
+
+
+{% endblock %}

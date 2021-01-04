@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+            <title>
+                
+            </title>
+            <script>
+                function verif(){
+
+                        var in1 = document.getElementById('in1').value;
+                        var in2 = document.getElementById('in1').value;
+                    if( in1.toLowerCase() == "admin"){
+                        if( in2.toLowerCase() == "admin"){
+                            alert("vous etes connecté en tanque administrateur !");
+                            document.location.href="/CrudH";
+                        }else{alert("Mot de pass inconu!");}
+                        
+                        
+                    }
+                    
+                }
+            
+            </script>
+        {% endblock %}
+
+{% block body %}
+<center>
+    <h1>Administrateur</h1>
+</center>
+<div style="position:absolute;top:40%;width:100%";>
+    <center> Mail :.............. <input type="mail" value="Mail"><br>
+    Mot de passe : <input type="password" value="Mot de passe" id="in1" ><br>
+    <button width="300px" onClick="verif()" id="in2">Valider</button>
+    <center>
+<div>
+
+{% endblock %}

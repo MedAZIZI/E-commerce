@@ -1,0 +1,11 @@
+route_acceuil:
+    path: /
+    controller: App\Controller\HomeController::home
+
+route_homme:
+    path: /men
+    controller: App\Controller\MenController::homme
+
+route_femme:
+    path: /women
+    controller: App\Controller\WomenController::femme

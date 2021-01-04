@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="UTF-8">
+         
+      
+       <title>{% block title %}Online Store {% endblock %} </title>
+       {% block stylesheets %}
+        
+        <link type="text/css" href="css/jquery.bbslider.css" rel="stylesheet" />
+
+
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        {# <link rel="stylesheet" type="text/css" href="css/lightslider.css"> #}
+        
+        <link rel="stylesheet" href="./style.css">
+       {% endblock %}
+   </head>
+
+
+
+   <body>
+   
+        
+        {% block header %} 
+          
+            
+        {% endblock %} 
+        
+        {% block body %} 
+            
+        {% endblock %}
+
+        
+       
+        {% block javascripts %}
+            
+          
+
+        {% endblock %} 
+   </body>
+</html>

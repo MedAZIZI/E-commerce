@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+        {% block header %}
+
+                
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../style.css">
+            <title>Accessoirs</title>
+
+        <header class="sticky-nav">
+            <a href="/"><div class="lg">
+                <span>W</span>
+                <span>flipp</span>
+            </div></a>
+
+            <ul class="nav">
+                <a href="/"><li>Nouveaute</li></a>
+                <a href="/women"><li>Femmes</li></a>
+                <a href="/men"><li>Hommes</li></a>
+                <a href="/acc"><li>Accessoires</li></a>
+                <a href="/panier"><li>panier (0)</li></a>
+            </ul>
+      
+      
+       
+        </header>
+        
+        {% endblock %} 
+        
+
+{% block body %}
+
+    
+    <div class="p1">
+        <div class="lookbook">
+            <div class="col1">
+                <h1>{{ article.title }}</h1>
+                <div class="detail-photos">
+                    <div class="box one"><img src="../images/products/{{ article.design }}" alt=""></div>
+                    <div class="box two"><img src="../images/products/{{ article.design }}" alt=""></div>
+                     <div class="box three"><img src="../images/products/{{ article.design }}" alt=""></div>
+                    
+                </div>
+            </div>
+            <div class="col2"><br><br>
+                <div class="center-img">
+                    <img src="../images/products/{{ article.design }}" alt="" class="item-img">
+                </div>
+            </div>
+
+            <div class="col3">
+                <h1>{{ article.prix }}</h1>
+                <p>{{ article.description }}</p>
+                 {{ form_start(form1, {'attr': {'novalidate': 'novalidate'}}) }}
+                 {{ form_widget(form1) }}
+                  <button class="btn btn-primary" onclick="return confirm('Ajouter cette article à votre panier ?');">add to cart</button>
+                 {{ form_end(form1) }}
+               
+            </div>
+        </div>
+    </div>
+    
+
+    
+{% endblock %}

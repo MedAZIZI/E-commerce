@@ -1,0 +1,148 @@
+  
+  
+  
+  
+  
+  
+  
+ {% extends 'base.html.twig' %}
+
+        {% block header %}
+
+                
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Lalezar&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../style.css">
+            <title>Accessoirs</title>
+
+        <header class="sticky-nav">
+            <a href="/"><div class="lg">
+                <span>W</span>
+                <span>flipp</span>
+            </div></a>
+
+            <ul class="nav">
+                <a href="/"><li>Nouveaute</li></a>
+                <a href="/women"><li>Femmes</li></a>
+                <a href="/men"><li>Hommes</li></a>
+                <a href="/acc"><li>Accessoires</li></a>
+                <a href="/panier"><li>panier </li> </a>
+            </ul>
+      
+       
+        </header>
+        
+        {% endblock %} 
+        
+
+{% block body %}
+
+     <div class="cart-container">
+        <div class="cart-s1">
+            
+            <div class="panier">
+                <span class="titres-ctr">MON PANIER</span>
+
+                <div class="choice">
+                    {# ---------------- #}
+                    {% for article in command %}
+                    <div class="cart-item">
+                        <img src="/images/products/{{ article.img }}" alt="image" class="cart-img">
+                        <div class="info-commande">
+                            <div class="pee">
+                                <p class="pd">Article : <b>{{ article.narticle }}</b></p>
+                                <p class="pdp">Prix :{{ article.prixUnit }} | Quantité :  {{ article.quantite }}</p>
+                            </div>
+                            <form method="POST" action="{{ path ('cmd_delA', { id:article.id }) }}"
+                            onsubmit=" return confirm('Etes-vous sur de supprimer ??') ">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button>Supprimer</button>  
+                            </form>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        <div class="cart-separator"></div>
+        <div class="cart-s2">
+            <span class="titres-ctr">SOMMAIRE DE COMMANDE</span>
+            <div class="prices-div">
+                <p class="pd">Prix des articles : <b>{{ tot }} DH</b></p>
+                <p class="pd">Frais de livraison: <b>0 DH</b></p>
+                <p class="pd">Total:<b>{{ tot }}DH</b></p>
+            </div>
+
+           
+            <button id="commander">COMMANDER</button>
+        </div>
+    </div>
+
+    <div id="pop-up" class="w3-container w3-center w3-animate-top" style="height:80%">
+        <img src="./images/close.png" id="close" alt="fermer">
+        <P class="titres">FINALSER VOTRE COMMANDE</P>
+             
+           
+        {# <form action="post" class="modal" > #}
+        {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        <table><tr><td>
+            <div class="frm-cmd">
+                 
+                <div class="area">
+                    {{ form_row(form.prenom) }}
+                </div>
+                <div class="area">
+                    {{ form_row(form.nom) }}
+                </div>
+                <div class="area">
+                    {{ form_row(form.age) }} 
+                </div>
+                <div class="area">
+                    {{ form_row(form.mail) }} 
+                </div>
+                <div class="area">
+                    {{ form_row(form.ville) }}
+                </div>
+                <div class="area">
+                    <p class="label">Adresse : </p>
+                    {# <textarea name="" class="textarea" id="adresse" name="adresse"></textarea> #}
+                    {{ form_row(form.adresse) }}
+                </div>
+            </div>
+            
+        </td><td style="width:100px"></td><td style="text-align:center">
+            <div class="col2">
+                <div class="sec">
+                    <p class="pd">Prix des articles : <b>{{ tot }} DH</b></p>
+                    <p class="pd">Frais de livraison: <b>0 DH</b></p>
+                    <p class="pd">Total: <b id="total">{{ tot }} DH</b></p>
+                </div>
+                <div class="policies">
+                    <div><input type="checkbox"> Je suis conscient que la livraison se fait à Oujda seulement.</div><br>
+                    <div><input type="checkbox"> J'ai lu et j'accepte les conditions d'achats.</div>
+                    <input type="submit" id="finaliser" value="FINALISER MA COMMANDE">
+                </div>
+            </div>
+        </tr></table>
+            {{ form_widget(form) }} 
+        {{ form_end(form) }}
+        {# </form> #}
+    </div>
+    <script>
+        document.getElementById("commander").addEventListener("click",()=>{
+                const pop=document.getElementById("pop-up");
+                pop.style.visibility="visible";
+            })
+            
+            document.getElementById("close").addEventListener("click",()=>{
+                const pop=document.getElementById("pop-up");
+                pop.style.visibility="hidden";
+                
+            })    
+    </script>
+
+    
+{% endblock %}
